@@ -36,7 +36,13 @@ const Details = ({navigation}) => {
       return true;
     };
  
-  
+    const openFormSenha = () => {
+      if (cpf === '' || fullName === '' || birthDate === '' || email === '' || mobile === '') {
+        Alert.alert("Erro", "Todos os campos devem ser preenchidos!");
+      } else {
+        setElementVisible(!elementVisible)}
+      }
+    
   
 
   const checkPasswordStrength = (password) => {
@@ -97,7 +103,7 @@ const Details = ({navigation}) => {
     
     })
     .catch((error => {alert(error.mensage)}))
-    }
+    };
     
 
     return (
@@ -112,7 +118,7 @@ const Details = ({navigation}) => {
 <View style={styles.containersenha}>
 
         <Text style={styles.labelsenha}>Vamos criar uma senha</Text>
-        <Text style={styles.subtexto}>
+        <Text style={styles.subtextosenha}>
           Crie uma senha segura para sua conta
         </Text>
         <Text style={styles.topicossenha}>• Mínimo de 8 caracteres;</Text>
@@ -232,7 +238,7 @@ const Details = ({navigation}) => {
         
           <Text style={styles.labelbox}>Li e aceito as políticas de privacidade</Text>
         </View>
-        <TouchableOpacity onPress={() => setElementVisible(!elementVisible)} style={styles.button}>
+        <TouchableOpacity onPress={openFormSenha} style={styles.button}>
           <Text style={styles.buttonText}>CONTINUAR</Text>
         </TouchableOpacity>
         </View>
@@ -240,9 +246,9 @@ const Details = ({navigation}) => {
     
       </ScrollView>
 
-</KeyboardAvoidingView>
+      </KeyboardAvoidingView>
     );
-  }
+  };
   
   export default Details;
 
@@ -424,7 +430,7 @@ const Details = ({navigation}) => {
    fontWeight: '600',
    letterSpacing: 1.1,
    width: '100%',
-   marginBottom: 6,
+   marginBottom: 4,
 
 
     },
@@ -436,7 +442,6 @@ const Details = ({navigation}) => {
       fontWeight: '200',
       color: "#034677",
       fontSize: 18,
-      
   },
 
   topicossenha:{

@@ -47,8 +47,6 @@ function HomeScreen({ navigation }) {
     setModalzinVisible(true);
   };
 
-
-
   return (
 
 
@@ -84,16 +82,15 @@ function HomeScreen({ navigation }) {
               </View>
                       
                       <Modal 
-         style={styles.pop}
-         animationType="slide"
-         transparent={true}
-         visible={modalVisible}
-         onRequestClose={() => {
-          console.log("Pedido para fechar modal");
-          setModalVisible(false);
-        }}
-          >
- 
+                        style={styles.pop}
+                        animationType="slide"
+                        transparent={true}
+                        visible={modalVisible}
+                        onRequestClose={() => {
+                          console.log("Pedido para fechar modal");
+                          setModalVisible(false);
+                        }}
+                        >
  
                     <TouchableOpacity style={styles.centureview} onPress={()=> setModalVisible (false)}>
 
@@ -128,9 +125,9 @@ function HomeScreen({ navigation }) {
                     </TouchableOpacity >
     
                       </Modal>
-                      <Modal 
 
-                      style={styles.pop}
+                      <Modal 
+                              style={styles.pop}
                               animationType="slide"
                               transparent={true}
                               visible={modalzinVisible}
@@ -139,53 +136,53 @@ function HomeScreen({ navigation }) {
                                 setModalzinVisible(false);
                               }}>
 
+                      
                       <TouchableOpacity style={styles.centureview} onPress={()=> setModalzinVisible (false)}>
 
-                      <View style={styles.modalview} >
-                                                        
-                                                          <View style={styles.viewimage}>
-                                                              <Image source={lgimage} style={styles.imagemmodal} resizeMode='contain'></Image>
-                                                          </View>
+                        <View style={styles.modalview} >
+                                                          
+                                                            <View style={styles.viewimage}>
+                                                                <Image source={lgimage} style={styles.imagemmodal} resizeMode='contain'></Image>
+                                                            </View>
 
-                                                          <View style={styles.viewbemvindo}>
-                                                              <Text style={styles.textomodal}>Bom te ver novamente!</Text>
-                                                              <Text style={styles.textfrase}>Digite seu Email para entrar na sua conta</Text>
-                                                          </View>
+                                                            <View style={styles.viewbemvindo}>
+                                                                <Text style={styles.textomodal}>Bom te ver novamente!</Text>
+                                                                <Text style={styles.textfrase}>Digite seu Email para entrar na sua conta</Text>
+                                                            </View>
 
+                                                            <View style={styles.imputcontainer}>
+                                                            <Text style={styles.miniplace}>CPF</Text>
+                                                                <TextInput
+                                                                    style={styles.input}
+                                                                    onChangeText={(email)=> setEmail(email)}
+                                                                    autoCapitalize='none'
+                                                                    autoCorrect={false}
+                                                                    placeholder="Digite aqui seu e-mail"
+                                                                    keyboardType="email-address"
+                                                                  />
+                                                          </View>   
+                                                          
                                                           <View style={styles.imputcontainer}>
-                                                          <Text style={styles.miniplace}>CPF</Text>
+                                                            <Text style={styles.miniplace}>Digite sua senha</Text>
                                                               <TextInput
-                                                                  style={styles.input}
-                                                                  onChangeText={(email)=> setEmail(email)}
-                                                                  autoCapitalize='none'
-                                                                  autoCorrect={false}
-                                                                  placeholder="Digite aqui seu e-mail"
-                                                                  keyboardType="email-address"
-                                                                />
-                                                        </View>   
-                                                        
-                                                        <View style={styles.imputcontainer}>
-                                                          <Text style={styles.miniplace}>Digite sua senha</Text>
-                                                            <TextInput
-                                                            style={styles.input}
-                                                            onChangeText={(password)=> setPassword(password)}
-                                                            autoCorrect={false}
-                                                            secureTextEntry={true}
-                                                            placeholder="Digite sua senha"
-                                                            />
-                                                        </View>
+                                                              style={styles.input}
+                                                              onChangeText={(password)=> setPassword(password)}
+                                                              autoCorrect={false}
+                                                              secureTextEntry={true}
+                                                              placeholder="Digite sua senha"
+                                                              />
+                                                          </View>
 
-                                                        <View>
-                                                              <TouchableOpacity style={styles.botaomodal} onPress={()=> loginUser(email,  password)}>
-                                                              <Text style={styles.textobotaomodal}>ENTRAR</Text>
-                                                              </TouchableOpacity>  
-                                                        </View>
-                              
-                                                  
-                                                  </View>
-                              
-                              
-                      </TouchableOpacity >
+                                                          <View>
+                                                                <TouchableOpacity style={styles.botaomodal} onPress={()=> loginUser(email,  password)}>
+                                                                <Text style={styles.textobotaomodal}>ENTRAR</Text>
+                                                                </TouchableOpacity>  
+                                                          </View>
+                                
+                                                    
+                        </View>
+                                  
+                      </TouchableOpacity>
 
                       </Modal>
 
@@ -277,18 +274,12 @@ const styles = StyleSheet.create({
       flex: 1,
       justifyContent: "flex-end",
       alignItems: "center",
-      
+      backgroundColor: "rgba(0,0,0,0.3)",
+
   },
 
-
-
   pop:{
-      position:"absolute",
-      bottom: 0,
       alignItems: "center",
-
-
-
   },
 
   modalview:{
@@ -296,7 +287,9 @@ const styles = StyleSheet.create({
       backgroundColor: "white",
       padding: 20,
       borderRadius: 40,
-      height: "45%",
+      flex: .46,
+      paddingBottom: Platform.OS === 'ios' ? 40 : 0,     
+
       
     },
 
@@ -328,7 +321,7 @@ const styles = StyleSheet.create({
       textAlign: "left",
       fontFamily: "Monteserrat",
       fontWeight: '700',
-      paddingTop: 70,
+      paddingTop: 50,
       lineHeight: 26,
     },
 
