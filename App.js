@@ -11,7 +11,7 @@ import ListarMedicos from './Componentes/Listadoc';
 import { AntDesign } from '@expo/vector-icons';
 import { HeaderBackButton } from '@react-navigation/native-stack';
 
-const HomeScreen = ({ goBack,navigation }) => {
+function HomeScreen({ navigation }) {
   const bgimage = require('./Image/IMG.png');
   const logoimage = require('./Image/logo.png');
   const [modalVisible, setModalVisible] = useState(false);
@@ -185,10 +185,7 @@ const HomeScreen = ({ goBack,navigation }) => {
                                                   </View>
                               
                               
-                                          </TouchableOpacity >
-
-
-
+                      </TouchableOpacity >
 
                       </Modal>
 
@@ -206,9 +203,9 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator >
-        <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Details" component={Details} options={{ headerShow: false}}/>
-        <Stack.Screen name="Principal" component={Principal} options={{ headerShown: false}}/>
+        <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false}} />
+        <Stack.Screen name="Details" component={Details} options={{ headerShown: true}}/>
+        <Stack.Screen name="Principal" component={Principal} options={{ headerShown: true}}/>
         <Stack.Screen name="ListarMedicos" component={ListarMedicos} options={{ headerShown: true}} />
       </Stack.Navigator>
     </NavigationContainer>
