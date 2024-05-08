@@ -290,7 +290,6 @@ const styles = StyleSheet.create({
       flex: .46,
       paddingBottom: Platform.OS === 'ios' ? 40 : 0,     
 
-      
     },
 
   viewimage:{
