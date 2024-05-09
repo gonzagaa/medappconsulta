@@ -33,7 +33,7 @@ const Details = ({navigation}) => {
         return false;
       }
       return true;
-    };
+    }
  
     const openFormSenha = () => {
       if (cpf === '' || fullName === '' || birthDate === '' || email === '' || mobile === '') {

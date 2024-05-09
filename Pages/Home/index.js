@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Text, View, Image, ImageBackground, TouchableOpacity, Modal,TextInput, SafeAreaView, StatusBar,screenOptions } from 'react-native';
 import firebase from "firebase/compat/app";
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
+
 
 import bgimage from '../../Image/IMG.png';
 import logoimage from '../../Image/logo.png';
@@ -13,39 +14,55 @@ import styles from './styles';
 
 
 
+
 export default function HomeScreen({ navigation }) {
-    const [modalVisible, setModalVisible] = useState(false);
-    const [modalzinVisible, setModalzinVisible] = useState(false);
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-  
-    loginUser = async (email,password) =>{
-      try {
-        await firebase.auth().signInWithEmailAndPassword(email,password);setModalzinVisible(false)
-        navigation.navigate('Principal');
-  
-      } catch (error){
-        alert(error.message)
-      }
-  
+  const [modalVisible, setModalVisible] = useState(false);
+  const [modalzinVisible, setModalzinVisible] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const subscriber = firebase.auth().onAuthStateChanged(onAuthStateChanged);
+    return subscriber; // Unsubscribe on unmount
+  }, []);
+
+  const onAuthStateChanged = (user) => {
+    setUser(user);
+    if (user) {
+      // Redireciona para a tela principal se o usuário estiver logado
+      navigation.navigate('Principal');
     }
-    
-    const openModal = () => {
-      console.log("Abrindo modal");
-      setModalVisible(true);
-    };
-  
-    const closeModalAndNavigate = () => {
-      console.log("Fechando modal e navegando");
-      setModalVisible(false); setModalzinVisible(false)
-      navigation.navigate('Details');
-    };
-  
-    const Modalzin = () => {
-      console.log("Abrindo modal");
-      setModalzinVisible(true);
-    };
-  
+  };
+
+  const loginUser = async (email, password) => {
+    try {
+      await firebase.auth().signInWithEmailAndPassword(email, password);
+      setModalzinVisible(false);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  const openModal = () => {
+    console.log("Abrindo modal");
+    setModalVisible(true);
+  };
+
+  const closeModalAndNavigate = () => {
+    console.log("Fechando modal e navegando");
+    setModalVisible(false);
+    setModalzinVisible(false);
+    navigation.navigate('Details');
+  };
+
+  const Modalzin = () => {
+    console.log("Abrindo modal");
+    setModalzinVisible(true);
+  };
+
+  if (user) return null;
+
   
   
     return (

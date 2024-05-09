@@ -16,6 +16,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import firebase from "firebase/compat/app";
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
+import Agendamentos from './Componentes/Agendamentos';
 
 
 
@@ -122,6 +123,9 @@ function MenuTab (){
             borderBottomColor: "#034677",  
           }
           }} />
+
+          <Stack.Screen name="Agendamentos" component={Agendamentos} options={{ headerShown: true}}/>
+
         </Stack.Navigator>
       </NavigationContainer>
     );

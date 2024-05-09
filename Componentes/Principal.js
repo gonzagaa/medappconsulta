@@ -106,8 +106,8 @@ const Principal = ({navigation}) => {
                                             <TouchableOpacity style={styles.botaomodal}>
                                             <Text style={styles.textobotaomodal} onPress={Modalzin}>CONSULTAR AGORA</Text>
                                             </TouchableOpacity>  
-                                            <TouchableOpacity style={styles.botaomodal}>
-                                            <Text style={styles.textobotaomodal}onPress={closeModalzinAndNavigate}>AGENDAR CONSULTA</Text>
+                                            <TouchableOpacity style={styles.botaomodal} onPress={closeModalzinAndNavigate}>
+                                            <Text style={styles.textobotaomodal}>AGENDAR CONSULTA</Text>
                                             </TouchableOpacity> 
                                       </View>
             
