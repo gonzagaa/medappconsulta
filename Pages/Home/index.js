@@ -8,8 +8,7 @@ import bgimage from '../../Image/IMG.png';
 import logoimage from '../../Image/logo.png';
 import lgimage from '../../Image/lgimage.png';
 import styles from './styles';
-import Principal from '../../Componentes/Principal';
-import ListarMedicos from '../../Componentes/Listadoc';
+
 
 
 
@@ -154,7 +153,7 @@ export default function HomeScreen({ navigation }) {
                                                             </View>
   
                                                             <View style={styles.imputcontainer}>
-                                                            <Text style={styles.miniplace}>CPF</Text>
+                                                            <Text style={styles.miniplace}>E-mail</Text>
                                                                 <TextInput
                                                                     style={styles.input}
                                                                     onChangeText={(email)=> setEmail(email)}

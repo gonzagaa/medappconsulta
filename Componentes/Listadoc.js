@@ -32,7 +32,7 @@ const ListarMedicos = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-        <Text style={styles.titulomed}>Atendimento Médico</Text>
+        <Text style={styles.titulomed}>Escolha o médico que irá realizar o seu atendimento</Text>
       <FlatList
         data={medicos}
         renderItem={({ item }) => (
@@ -54,22 +54,26 @@ const styles = StyleSheet.create({
 
   titulomed: {
     fontFamily: "Monteserrat",
-    fontSize: 22,
+    fontSize: 19,
     marginLeft: 4,
     color: "#034677",
-    fontWeight: '600',
+    fontWeight: '200',
     letterSpacing: 1.1,
     width: '100%',
     marginBottom: 12,
+    
   },
 
   card: {
-    backgroundColor: '#fff',
-    padding: 20,
-    marginVertical: 8,
-    borderRadius: 5,
-    elevation: 3,
+    height: 70,
+    borderWidth: 7,
+    padding: 10,
+    borderRadius: 6,
+    borderColor: "#034677",
+    marginTop: 30,
+    marginBottom: 7
   },
+  
   title: {
     fontSize: 18,
     fontWeight: 'bold',

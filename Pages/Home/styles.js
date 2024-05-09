@@ -129,7 +129,6 @@ export default StyleSheet.create({
       imagemmodal:{
         width:80,
         height: 80,
-  
       },
   
       textfrase:{
