@@ -1,13 +1,13 @@
-import  React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
 import Details from './Componentes/Details';
 import Principal from './Componentes/Principal';
 import ListarMedicos from './Componentes/Listadoc';
 
 import HomeScreen from './Pages/Home';
+import { NavigationContainer } from '@react-navigation/native';
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 function App() {
   return (

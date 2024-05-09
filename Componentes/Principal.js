@@ -1,7 +1,6 @@
 import  React, { Component, useState } from 'react';
 import { Text, View, ScrollView, Image, Button, ImageBackground, StyleSheet, wordWrap, TouchableOpacity, Platform ,Modal,TouchableHighlight,TextInput, CheckBox ,handleSubmit, Alert, ViewBase} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { firebase } from './Config';
 import { updateCurrentUser } from 'firebase/auth';
 import ListarMedicos from './Listadoc';
