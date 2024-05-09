@@ -1,5 +1,5 @@
 import  React, { Component, useState } from 'react';
-import { Text, View, ScrollView, Image, Button, ImageBackground, StyleSheet, wordWrap, TouchableOpacity, Modal,TouchableHighlight,TextInput, CheckBox ,handleSubmit, Alert, ViewBase} from 'react-native';
+import { Text, View, ScrollView, Image, Button, ImageBackground, StyleSheet, wordWrap, TouchableOpacity, Platform ,Modal,TouchableHighlight,TextInput, CheckBox ,handleSubmit, Alert, ViewBase} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { firebase } from './Config';
@@ -39,71 +39,73 @@ const Principal = ({navigation}) => {
                 <View style={styles.container}>
                         <Text style={styles.label}>Com o que podemos te ajudar?</Text>
                         <Text style={styles.subtexto}>Escolhemos os melhores especialistas e clínicos gerais especialmente para você!</Text>
-                        <ImageBackground source={emergencia} style={styles.fotinha} imageStyle={{ borderRadius: 30}}>
-                        
-                        <TouchableOpacity style={styles.atendimento} onPress={openModal}>
-                            <Text style={styles.atendimentotext}>Atendimento Clinico</Text>
-                            </TouchableOpacity>
-                        </ImageBackground>
 
-                        <View style={styles.netflix}>
-                            <ImageBackground source={psicologo} style={styles.fotinhacerebro} imageStyle={{ borderRadius: 25}}>
-                            <TouchableOpacity style={styles.atendimentopsicologo}>
-                                <Text style={styles.psicologotext}>Psicologo</Text>
-                                </TouchableOpacity>
-                            </ImageBackground>
+                        <View style={styles.botoesEspecialidades}>
+                          <ImageBackground source={emergencia} style={styles.fotinha} imageStyle={{ borderRadius: 30}}>
+                              <TouchableOpacity style={styles.atendimento} onPress={openModal}>
+                              <Text style={styles.atendimentotext}>Atendimento Clinico</Text>
+                              </TouchableOpacity>
+                          </ImageBackground>
 
-                            <ImageBackground source={psiquiatra} style={styles.fotinhacelular} imageStyle={{ borderRadius: 25}}>
-                            <TouchableOpacity style={styles.atendimentopsi}>
-                                <Text style={styles.psitext}>Psiquiatra</Text>
-                                </TouchableOpacity>
-                            </ImageBackground>
+                          <View style={styles.netflix}>
+                              <ImageBackground source={psicologo} style={styles.fotinhapequena} imageStyle={{ borderRadius: 25}}>
+                                  <TouchableOpacity style={styles.atendimentopsicologo}>
+                                      <Text style={styles.textopequeno}>Psicologo</Text>
+                                  </TouchableOpacity>
+                              </ImageBackground>
+
+                              <ImageBackground source={psiquiatra} style={styles.fotinhapequena} imageStyle={{ borderRadius: 25}}>
+                                  <TouchableOpacity style={styles.atendimentopsi}>
+                                      <Text style={styles.textopequeno}>Psiquiatra</Text>
+                                  </TouchableOpacity>
+                              </ImageBackground>
+                          </View>
                         </View>
                         
                         <Text style={styles.textinho}>• Em casa de dúvidas sobre consultas e agendamentos entre em contato com nosso suporte 24h</Text>
                     </View>
 
 
-                    <Modal 
-         style={styles.pop}
-         animationType="slide"
-         transparent={true}
-         visible={modalVisible}
-         onRequestClose={() => {
-          console.log("Pedido para fechar modal");
-          setModalVisible(false);
-        }}
-          >
- 
- 
-                    <TouchableOpacity style={styles.centureview} onPress={()=> setModalVisible (false)}>
-
-                            <View style={styles.modalview} >
-                                  
-                                    <View style={styles.viewimage}>
-                                        <Image source={lgimage} style={styles.imagemmodal} resizeMode='contain'></Image>
-                                    </View>
-
-                                    <View style={styles.viewbemvindo}>
-                                        <Text style={styles.textomodal}>O que você deseja?</Text>
-                                    </View>
-
-                                   <View>
-                                        <TouchableOpacity style={styles.botaomodal}>
-                                        <Text style={styles.textobotaomodal} onPress={Modalzin}>CONSULTAR AGORA</Text>
-                                        </TouchableOpacity>  
-                                        <TouchableOpacity style={styles.botaomodal}>
-                                        <Text style={styles.textobotaomodal}onPress={closeModalzinAndNavigate}>AGENDAR CONSULTA</Text>
-                                        </TouchableOpacity> 
-                                  </View>
-        
-                            
-                            </View>
-        
-        
-                    </TouchableOpacity >
+                        <Modal 
+            style={styles.pop}
+            animationType="slide"
+            transparent={true}
+            visible={modalVisible}
+            onRequestClose={() => {
+              console.log("Pedido para fechar modal");
+              setModalVisible(false);
+            }}
+              >
     
-        </Modal>
+    
+                        <TouchableOpacity style={styles.centureview} onPress={()=> setModalVisible (false)}>
+
+                                <View style={styles.modalview} >
+                                      
+                                        <View style={styles.viewimage}>
+                                            <Image source={lgimage} style={styles.imagemmodal} resizeMode='contain'></Image>
+                                        </View>
+
+                                        <View style={styles.viewbemvindo}>
+                                            <Text style={styles.textomodal}>O que você deseja?</Text>
+                                        </View>
+
+                                      <View>
+                                            <TouchableOpacity style={styles.botaomodal}>
+                                            <Text style={styles.textobotaomodal} onPress={Modalzin}>CONSULTAR AGORA</Text>
+                                            </TouchableOpacity>  
+                                            <TouchableOpacity style={styles.botaomodal}>
+                                            <Text style={styles.textobotaomodal}onPress={closeModalzinAndNavigate}>AGENDAR CONSULTA</Text>
+                                            </TouchableOpacity> 
+                                      </View>
+            
+                                
+                                </View>
+            
+            
+                        </TouchableOpacity >
+        
+                        </Modal>
 
                         
                          <Modal 
@@ -152,11 +154,9 @@ export default Principal;
 const styles = StyleSheet.create({
 
 container:{
-
     padding: 10,
     marginTop: 25,
-    marginLeft: 30,
-    marginRight: 30,
+    paddingHorizontal: 30,
     borderRadius: 100,
     shadowColor: "#000",
     shadowOffset: {
@@ -167,6 +167,7 @@ container:{
     shadowRadius: 4.65,
 
     elevation: 6,
+    height: "100%",
   },
 
   label: {
@@ -192,6 +193,10 @@ container:{
     
 },
 
+botoesEspecialidades: {
+  flexDirection: "colum",
+},
+
 atendimento:{
       padding: 16,    
       paddingBottom: 125,
@@ -206,6 +211,7 @@ atendimentotext:{
     textAlign: 'left',
     fontWeight: '700',
     lineHeight: 32,
+    paddingTop: 10,
 },
 
 fotinha:{
@@ -214,10 +220,8 @@ fotinha:{
 
 netflix:{
     gap: 16,
-    justifyContent: 'space-between',
     flexDirection: "row",
     marginTop: 16,
-
 
 },
 
@@ -229,10 +233,14 @@ pop:{
 
 },
 
+fotinhapequena:{
+  flex: .5,
+},
+
 
 atendimentopsi:{
     padding: 16,    
-    paddingBottom: 165,
+    paddingBottom: 130,
     borderRadius: 25,
     backgroundColor: 'rgba(0,0,0,0.07)'
 },
@@ -245,17 +253,8 @@ atendimentopsicologo:{
     
 },
 
-psicologotext:{
-    fontSize: 29,
-    color: 'white',
-    textAlign: 'left',
-    fontWeight: '700',
-    lineHeight: 32,
-
-},
-
-psitext:{
-    fontSize: 29,
+textopequeno:{
+    fontSize: 24,
     color: 'white',
     textAlign: 'left',
     fontWeight: '700',
@@ -269,7 +268,6 @@ textinho:{
     fontSize: 11,
     marginTop: 30,
     textAlign: "center",
-
 },
 
 
@@ -279,13 +277,15 @@ centureview:{
     alignItems: "center",
 },
 
-modalview:{
-    width:"100%", 
-    backgroundColor: "#4B92E5",
-    padding: 20,
-    borderRadius: 40,
-    height: "45%",
-  },
+ modalview:{
+      width:"100%", 
+      backgroundColor: "#4B92E5",
+      padding: 20,
+      borderRadius: 40,
+      flex: .46,
+      paddingBottom: Platform.OS === 'ios' ? 40 : 0,     
+
+    },
 
   viewimage:{
     position: 'absolute',
