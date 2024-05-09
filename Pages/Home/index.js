@@ -1,10 +1,18 @@
 import { useState } from 'react';
-import { Text, View, Image, ImageBackground, TouchableOpacity, Modal,TextInput, SafeAreaView, StatusBar } from 'react-native';
+import { Text, View, Image, ImageBackground, TouchableOpacity, Modal,TextInput, SafeAreaView, StatusBar,screenOptions } from 'react-native';
+import firebase from "firebase/compat/app";
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
 
 import bgimage from '../../Image/IMG.png';
 import logoimage from '../../Image/logo.png';
 import lgimage from '../../Image/lgimage.png';
 import styles from './styles';
+import Principal from '../../Componentes/Principal';
+import ListarMedicos from '../../Componentes/Listadoc';
+
+
+
 
 export default function HomeScreen({ navigation }) {
     const [modalVisible, setModalVisible] = useState(false);

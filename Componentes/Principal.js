@@ -4,6 +4,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { firebase } from './Config';
 import { updateCurrentUser } from 'firebase/auth';
 import ListarMedicos from './Listadoc';
+import HomeScreen from '../Pages/Home';
+import Details from './Details';
+
+
 
 const Principal = ({navigation}) => {
     const emergencia = require('../Image/emergencia.png');
@@ -31,9 +35,15 @@ const Principal = ({navigation}) => {
         setModalzinVisible(true); setModalVisible (false)
       };
       
+      
+
     return (   
+      
+    
+                    
        
         <View>
+         
 
                 <View style={styles.container}>
                         <Text style={styles.label}>Com o que podemos te ajudar?</Text>
@@ -61,7 +71,10 @@ const Principal = ({navigation}) => {
                           </View>
                         </View>
                         
+
                         <Text style={styles.textinho}>• Em casa de dúvidas sobre consultas e agendamentos entre em contato com nosso suporte 24h</Text>
+
+                        
                     </View>
 
 
