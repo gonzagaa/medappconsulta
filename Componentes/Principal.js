@@ -6,17 +6,20 @@ import { updateCurrentUser } from 'firebase/auth';
 import ListarMedicos from './Listadoc';
 import HomeScreen from '../Pages/Home';
 import Details from './Details';
+import { RFValue } from "react-native-responsive-fontsize";
 
-
+import carinha from '../Image/carinhaperfil.png';
+import mednome from '../Image/logomednome.png';
 
 const Principal = ({navigation}) => {
-    const emergencia = require('../Image/emergencia.png');
-    const psiquiatra = require('../Image/celular.png');
-    const psicologo = require('../Image/cerebro.png');
+    const emergencia = require('../Image/emergencia.jpg');
+    const psiquiatra = require('../Image/celular.jpg');
+    const psicologo = require('../Image/cerebro.jpg');
     const [modalVisible, setModalVisible] = useState(false);
     const lgimage = require('../Image/lgimage.png');
     const [elementVisible, setElementVisible] = useState(false);
     const [modalzinVisible, setModalzinVisible] = useState(false);
+    const [modalespecialidadeVisible, setModalespecialidadeVisible] = useState(false)
 
 
     const closeModalzinAndNavigate = () => {
@@ -35,7 +38,17 @@ const Principal = ({navigation}) => {
         setModalzinVisible(true); setModalVisible (false)
       };
       
+      const openModalespecialidade = () => {
+        console.log("Abrindo modal");
+        setModalespecialidadeVisible(true);
+      };
       
+      const closeModalespecialidadeAndNavigate = () => {
+        console.log("Fechando modal e navegando");
+        setModalespecialidadeVisible(false); setModalespecialidadeVisible(false)
+        navigation.navigate('ListarMedicos');
+    };
+
 
     return (   
       
@@ -43,9 +56,16 @@ const Principal = ({navigation}) => {
                     
        
         <View>
-         
+                <ScrollView style={styles.container}>
+                  <View style={styles.fotosheader}>
+                      <Image style={styles.ftmed} source={mednome} resizeMode='contain'></Image>
 
-                <View style={styles.container}>
+                      <TouchableOpacity>
+                        <Image style={styles.ftcarinha} source={carinha} resizeMode='contain'></Image>
+                      </TouchableOpacity>
+                    
+                  </View>
+
                         <Text style={styles.label}>Com o que podemos te ajudar?</Text>
                         <Text style={styles.subtexto}>Escolhemos os melhores especialistas e clínicos gerais especialmente para você!</Text>
 
@@ -57,14 +77,14 @@ const Principal = ({navigation}) => {
                           </ImageBackground>
 
                           <View style={styles.netflix}>
-                              <ImageBackground source={psicologo} style={styles.fotinhapequena} imageStyle={{ borderRadius: 25}}>
-                                  <TouchableOpacity style={styles.atendimentopsicologo}>
+                              <ImageBackground source={psicologo} style={styles.fotinhapequena} imageStyle={{ borderRadius: 25}} >
+                                  <TouchableOpacity style={styles.atendimentopsicologo} onPress={openModalespecialidade}>
                                       <Text style={styles.textopequeno}>Psicologo</Text>
                                   </TouchableOpacity>
                               </ImageBackground>
 
-                              <ImageBackground source={psiquiatra} style={styles.fotinhapequena} imageStyle={{ borderRadius: 25}}>
-                                  <TouchableOpacity style={styles.atendimentopsi}>
+                              <ImageBackground source={psiquiatra} style={styles.fotinhapequena} imageStyle={{ borderRadius: 25}} >
+                                  <TouchableOpacity style={styles.atendimentopsi} onPress={openModalespecialidade}>
                                       <Text style={styles.textopequeno}>Psiquiatra</Text>
                                   </TouchableOpacity>
                               </ImageBackground>
@@ -75,7 +95,7 @@ const Principal = ({navigation}) => {
                         <Text style={styles.textinho}>• Em casa de dúvidas sobre consultas e agendamentos entre em contato com nosso suporte 24h</Text>
 
                         
-                    </View>
+                    </ScrollView>
 
 
                         <Modal 
@@ -103,11 +123,11 @@ const Principal = ({navigation}) => {
                                         </View>
 
                                       <View>
-                                            <TouchableOpacity style={styles.botaomodal}>
-                                            <Text style={styles.textobotaomodal} onPress={Modalzin}>CONSULTAR AGORA</Text>
+                                            <TouchableOpacity style={styles.botaomodal} onPress={Modalzin}>
+                                            <Text style={styles.textobotaomodal}>CONSULTAR AGORA</Text>
                                             </TouchableOpacity>  
                                             <TouchableOpacity style={styles.botaomodal} onPress={closeModalzinAndNavigate}>
-                                            <Text style={styles.textobotaomodal}>AGENDAR CONSULTA</Text>
+                                            <Text style={styles.textobotaomodal} >AGENDAR CONSULTA</Text>
                                             </TouchableOpacity> 
                                       </View>
             
@@ -155,6 +175,41 @@ const Principal = ({navigation}) => {
 
                          </Modal>
 
+
+                         <Modal 
+                        style={styles.pop}
+                            animationType="slide"
+                            transparent={true}
+                            visible={ modalespecialidadeVisible}
+                            onRequestClose={() => {
+                            console.log("Pedido para fechar modal");
+                            setModalespecialidadeVisible(false);
+                            }}>
+
+                                <TouchableOpacity style={styles.centureview} onPress={()=> setModalespecialidadeVisible (false)}>
+                            <View style={styles.modalview} >
+                                                                                        
+                                     <View style={styles.viewimage}>
+                                       <Image source={lgimage} style={styles.imagemmodal} resizeMode='contain'></Image>
+                                     </View>
+                                        
+                                          <View style={styles.viewbemvindo}>
+                                                <Text style={styles.textomodal1}>As consultas com esses especialistas serão realizadas apenas com agendamento!</Text>
+                                          </View>
+                                        
+                                           <View>
+                                           <TouchableOpacity style={styles.botaomodal} onPress={closeModalespecialidadeAndNavigate} >
+                                              <Text style={styles.textobotaomodal}>AGENDAR CONSULTA</Text>
+                                            </TouchableOpacity>  
+                                          </View>
+                                        
+                                        
+                             </View>
+
+                             </TouchableOpacity>
+
+                         </Modal>
+
         </View>
 
 
@@ -167,25 +222,16 @@ const styles = StyleSheet.create({
 
 container:{
     padding: 10,
-    marginTop: 25,
     paddingHorizontal: 30,
-    borderRadius: 100,
-    shadowColor: "#000",
-    shadowOffset: {
-        width: 0,
-        height: 3,
-    },
-    shadowOpacity: 0.27,
-    shadowRadius: 4.65,
-
     elevation: 6,
     height: "100%",
+    backgroundColor: "white",
   },
 
   label: {
       
     fontFamily: "Monteserrat",
-    fontSize: 22,
+    fontSize: RFValue(20),
     marginLeft: 4,
     color: "#034677",
     fontWeight: '600',
@@ -201,7 +247,8 @@ container:{
     marginLeft: 4,
     fontWeight: '200',
     color: "#034677",
-    fontSize: 18,
+    fontSize: RFValue(14),
+    
     
 },
 
@@ -388,5 +435,23 @@ textomodal1:{
     marginBottom: 4,
   },
 
+  fotosheader:{
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingTop: 25,
+    marginBottom: 25,
+
+    borderBottomWidth: 1,
+    borderBottomColor: "#034677",
+  },
+
+  ftcarinha:{
+    width: 40,
+  },
+
+  ftmed:{
+    width: 100,
+    marginTop: 10,
+  },
 });
   

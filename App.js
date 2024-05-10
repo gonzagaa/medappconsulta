@@ -29,8 +29,8 @@ function MenuTab (){
           initialRouteName="Feed"
           screenOptions={{
 
-            tabBarActiveTintColor: '#034677',
-            tabBarInactiveTintColor: "#808080",
+            tabBarInactiveTintColor: '#034677',
+            tabBarActiveTintColor: "#4b92e5",
             tabBarStyle: {
               position: "absolute",
               bottom: 0,
@@ -124,7 +124,10 @@ function MenuTab (){
           }
           }} />
 
-          <Stack.Screen name="Agendamentos" component={Agendamentos} options={{ headerShown: true}}/>
+          <Stack.Screen name="Agendamentos" component={Agendamentos} options={{ headerShown: true,
+            headerTintColor: "#034677",
+              headerTitle: 'Agendar Consulta',
+              headerBackTitle: 'Voltar',}}/>
 
         </Stack.Navigator>
       </NavigationContainer>

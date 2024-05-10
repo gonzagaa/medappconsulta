@@ -68,7 +68,6 @@ const styles = StyleSheet.create({
     width: '100%',
     marginBottom: 40,
     textAlign: 'center',
-    
   },
 
   card: {
@@ -79,13 +78,7 @@ const styles = StyleSheet.create({
     borderColor: "#034677",
     
     marginBottom: 20,
-    shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 3,
-        },
-        shadowOpacity: 0.27,
-        shadowRadius: 4.65,
+    
     flexDirection: "row",
     alignItems: "center"
   },
@@ -95,7 +88,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: "#034677",
     marginBottom: 6,
-    shadowOpacity: 0,
   },
 
   crmMedico: {
