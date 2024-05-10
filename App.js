@@ -5,6 +5,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Details from './Componentes/Details';
 import Principal from './Componentes/Principal';
 import ListarMedicos from './Componentes/Listadoc';
+import Testcam from './Componentes/Testecam';
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import lgimage from '././Image/lgimage.png';
@@ -128,6 +130,20 @@ function MenuTab (){
             headerTintColor: "#034677",
               headerTitle: 'Agendar Consulta',
               headerBackTitle: 'Voltar',}}/>
+
+            <Stack.Screen name="Testcam"component={Testcam} options={{ 
+                      headerShown: true,
+                      headerTintColor: "#034677",
+                        headerTitle: 'Atendimento Médico',
+                        headerTitleVisible: false,
+                        headerBackTitle: 'Voltar',
+                      
+                      headerStyle: {
+                        backgroundColor: 'white',
+                        borderBottomWidth: 0.3,  
+                        borderBottomColor: "#034677",  
+                      }
+                      }} />
 
         </Stack.Navigator>
       </NavigationContainer>

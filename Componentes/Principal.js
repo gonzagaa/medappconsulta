@@ -38,6 +38,12 @@ const Principal = ({navigation}) => {
         setModalzinVisible(true); setModalVisible (false)
       };
       
+      const ModalzinCamera = () => {
+        console.log("Fechando modal e navegando");
+        setModalVisible(false); setModalzinVisible(false)
+        navigation.navigate('Testcam');
+      };
+
       const openModalespecialidade = () => {
         console.log("Abrindo modal");
         setModalespecialidadeVisible(true);
@@ -163,7 +169,7 @@ const Principal = ({navigation}) => {
                                           </View>
                                         
                                            <View>
-                                           <TouchableOpacity style={styles.botaomodal} >
+                                           <TouchableOpacity style={styles.botaomodal} onPress={ModalzinCamera}>
                                               <Text style={styles.textobotaomodal}>TESTAR CHAMADA</Text>
                                             </TouchableOpacity>  
                                           </View>
