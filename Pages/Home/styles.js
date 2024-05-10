@@ -2,8 +2,7 @@ import { Platform, StyleSheet } from "react-native";
 
 export default StyleSheet.create({
     bgimage: {
-        width:'100%',
-        height: '100%',
+        flex: 1,
         resizeMode: 'cover',
       },
   
@@ -57,39 +56,42 @@ export default StyleSheet.create({
         textAlign: "center",
         fontSize: 16,
         color: 'white',
-        padding: 9,
+        padding: 6,
     },
   
     centureview:{
         flex: 1,
         justifyContent: "flex-end",
         alignItems: "center",
-        
     },
-  
-  
+
   
     pop:{
         position:"absolute",
         bottom: 0,
         alignItems: "center",
-  
-  
-  
     },
   
     modalview:{
         width:"100%", 
         backgroundColor: "white",
         padding: 20,
-        borderRadius: 40,
-        height: "45%",
-        
+        borderTopRightRadius: 40,
+        borderTopLeftRadius: 40,
+        flex: .5,
+      },
+
+      containerKeyBoard:{
+        width:"100%", 
+        backgroundColor: "white",
+        borderTopRightRadius: 40,
+        borderTopLeftRadius: 40,
+        flex: .5,
       },
   
     viewimage:{
         position: 'absolute',
-        top: -80,
+        top: -75,
         left: "50%",
         transform:[{translateX: -50}],
         backgroundColor: "white",
@@ -115,7 +117,7 @@ export default StyleSheet.create({
         textAlign: "left",
         fontFamily: "Monteserrat",
         fontWeight: '700',
-        paddingTop: 70,
+        paddingTop: 60,
         lineHeight: 26,
       },
   
@@ -225,12 +227,12 @@ export default StyleSheet.create({
     },
   
     vazia:{
-      flex:.7,
+      flex: .7,
   
     },
   
   conteudopg:{
-    flex: .3,
+    flex: .35,
     paddingHorizontal: 30,
   },
   

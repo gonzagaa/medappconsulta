@@ -296,12 +296,12 @@ centureview:{
       borderRadius: 40,
       flex: .46,
       paddingBottom: Platform.OS === 'ios' ? 40 : 0,     
-
+      
     },
 
   viewimage:{
     position: 'absolute',
-    top: -80,
+    top: -75,
     left: "50%",
     transform:[{translateX: -50}],
     backgroundColor: "white",

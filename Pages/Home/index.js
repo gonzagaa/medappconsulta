@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Text, View, Image, ImageBackground, TouchableOpacity, Modal,TextInput, SafeAreaView, StatusBar,screenOptions } from 'react-native';
+import { Text, View, Image, ImageBackground, TouchableOpacity, Modal,TextInput, SafeAreaView, StatusBar,screenOptions, KeyboardAvoidingView, Platform, Pressable } from 'react-native';
 import firebase from "firebase/compat/app";
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
@@ -9,10 +9,6 @@ import bgimage from '../../Image/IMG.png';
 import logoimage from '../../Image/logo.png';
 import lgimage from '../../Image/lgimage.png';
 import styles from './styles';
-
-
-
-
 
 
 export default function HomeScreen({ navigation }) {
@@ -62,8 +58,6 @@ export default function HomeScreen({ navigation }) {
   };
 
   if (user) return null;
-
-  
   
     return (
   
@@ -101,20 +95,19 @@ export default function HomeScreen({ navigation }) {
                 </View>
                         
                         <Modal 
-           style={styles.pop}
-           animationType="slide"
-           transparent={true}
-           visible={modalVisible}
-           onRequestClose={() => {
-            console.log("Pedido para fechar modal");
-            setModalVisible(false);
-          }}
-            >
+                        style={styles.pop}
+                        animationType="slide"
+                        transparent={true}
+                        visible={modalVisible}
+                        onRequestClose={() => {
+                          console.log("Pedido para fechar modal");
+                          setModalVisible(false);
+                        }}
+                          >
    
-   
-                      <TouchableOpacity style={styles.centureview} onPress={()=> setModalVisible (false)}>
-  
-                              <View style={styles.modalview} >
+                      <Pressable style={styles.centureview} onPress={()=> setModalVisible (false)}>
+                      
+                        <View style={styles.modalview} >
                                     
                                       <View style={styles.viewimage}>
                                           <Image source={lgimage} style={styles.imagemmodal} resizeMode='contain'></Image>
@@ -131,7 +124,6 @@ export default function HomeScreen({ navigation }) {
                                           <Text style={styles.topicos}>• Telefone e e-mail</Text>
                                      </View>   
   
-  
                                      <View>
                                           <TouchableOpacity style={styles.botaomodal} onPress={closeModalAndNavigate}>
                                           <Text style={styles.textobotaomodal}>OK, ENTENDI</Text>
@@ -139,12 +131,12 @@ export default function HomeScreen({ navigation }) {
                                     </View>
           
                               
-                              </View>
+                        </View>          
           
-          
-                      </TouchableOpacity >
+                        </Pressable>
       
                         </Modal>
+
                         <Modal 
   
                         style={styles.pop}
@@ -156,8 +148,12 @@ export default function HomeScreen({ navigation }) {
                                   setModalzinVisible(false);
                                 }}>
   
-                        <TouchableOpacity style={styles.centureview} onPress={()=> setModalzinVisible (false)}>
+                        <Pressable style={styles.centureview} onPress={()=> setModalzinVisible (false)}>
   
+                        <KeyboardAvoidingView
+                          style={styles.containerKeyBoard}
+                          behavior={Platform.OS === "ios" ? "padding" : "height"}
+                        >
                         <View style={styles.modalview} >
                                                           
                                                             <View style={styles.viewimage}>
@@ -199,10 +195,10 @@ export default function HomeScreen({ navigation }) {
                                                           </View>
                                 
                                                     
-                                                    </View>
+                        </View>
+                        </KeyboardAvoidingView>   
                                 
-                                
-                        </TouchableOpacity >
+                        </Pressable >
   
                         </Modal>
   
