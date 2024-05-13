@@ -56,18 +56,14 @@ const Principal = ({navigation}) => {
     };
 
 
-    return (   
-      
-    
-                    
-       
+    return (    
         <View>
                 <ScrollView style={styles.container}>
                   <View style={styles.fotosheader}>
                       <Image style={styles.ftmed} source={mednome} resizeMode='contain'></Image>
 
                       <TouchableOpacity>
-                        <Image style={styles.ftcarinha} source={carinha} resizeMode='contain'></Image>
+                        <Image style={styles.ftcarinha} source={carinha} resizeMode='contain' ></Image>
                       </TouchableOpacity>
                     
                   </View>

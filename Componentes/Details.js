@@ -97,11 +97,14 @@ const Details = ({navigation}) => {
           .doc(firebase.auth().currentUser.uid)
           .set ({cpf, fullName, birthDate, email, mobile, password})
       })
-    
+        
       .catch((error) => {alert(error.mensage)})
     
     })
     .catch((error => {alert(error.mensage)}))
+
+    navigation.navigate('ContaCriada')
+
     };
     
 

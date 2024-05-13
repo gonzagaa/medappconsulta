@@ -19,6 +19,7 @@ import firebase from "firebase/compat/app";
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import Agendamentos from './Componentes/Agendamentos';
+import ContaCriada from './Componentes/Contacriada';
 
 
 
@@ -94,7 +95,7 @@ function MenuTab (){
       <NavigationContainer>
         <Stack.Navigator>
           
-          <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false}} />
+          <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ headerShown: false}} />
           
           <Stack.Screen name="Details" component={Details} options={{
             headerShown: true,
@@ -109,6 +110,20 @@ function MenuTab (){
                 borderBottomColor: "#034677",  
             }
     }} />
+
+                <Stack.Screen name='ContaCriada' component={ContaCriada} options={{
+                            headerShown: false,
+                            headerTintColor: "#034677",
+                              headerTitle: '',
+                              headerTitleVisible: false,
+                              headerBackTitle: 'Voltar',
+                              
+                            headerStyle: {
+                              backgroundColor: 'white',
+                              borderBottomWidth: 0.3,  
+                                borderBottomColor: "#034677",  
+                            }
+                    }} />
           
           <Stack.Screen name="Principal" component={MenuTab} options={{ headerShown: false}}/>
           
@@ -144,6 +159,8 @@ function MenuTab (){
                         borderBottomColor: "#034677",  
                       }
                       }} />
+
+
 
         </Stack.Navigator>
       </NavigationContainer>
