@@ -106,13 +106,30 @@ const Agendamentos = ({ route, navigation }) => {
          activeOpacity={0.5}  // Reduz a opacidade do botão quando pressionado
         key={index}
         style={styles.timeButton}
-        onPress={() => navigation.navigate('ConfirmacaoScreen', {
-        nomeMedico: nome,
-        crmMedico: crm,
-        dataConsulta: selectedDate,
-        horaConsulta: time,
-        medicoId: medicoId
-      })}
+        onPress={() => {
+          const docRef = firebase.firestore()
+        .collection('medicos')
+        .doc(medicoId)
+        .collection('datas')
+        .doc(selectedDate);
+
+        docRef.update({
+          horarios: firebase.firestore.FieldValue.arrayRemove(time)
+      }).then(() => {
+        console.log("Horário reservado e atualizado no Firestore.");
+        // Somente navega após a atualização bem-sucedida
+        navigation.navigate('Pagamento', {
+            nomeMedico: nome,
+            crmMedico: crm,
+            dataConsulta: selectedDate,
+            horaConsulta: time,
+            medicoId: medicoId
+        });
+      }).catch(error => {
+        console.error("Erro ao atualizar horários:", error);
+        // Handle error, e.g., show a message to the user
+    });
+  }}
     >
       <Text style={styles.timeButtonText}>{time}</Text>
     </TouchableOpacity>

@@ -20,6 +20,7 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import Agendamentos from './Componentes/Agendamentos';
 import ContaCriada from './Componentes/Contacriada';
+import Pagamento from './Pages/Pagamento/Pagamentos';
 
 
 
@@ -146,6 +147,11 @@ function MenuTab (){
               headerTitle: 'Agendar Consulta',
               headerBackTitle: 'Voltar',}}/>
 
+          <Stack.Screen name='Pagamento' component={Pagamento} options={{ headerShown: true,
+             headerTintColor: "#034677",
+             headerTitle: 'Pagamento',
+             headerBackTitle: 'Voltar',}}/>
+
             <Stack.Screen name="Testcam"component={Testcam} options={{ 
                       headerShown: true,
                       headerTintColor: "#034677",
@@ -160,6 +166,7 @@ function MenuTab (){
                       }
                       }} />
 
+                        
 
 
         </Stack.Navigator>
