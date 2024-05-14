@@ -4,6 +4,7 @@ export default StyleSheet.create({
     bgimage: {
         flex: 1,
         resizeMode: 'cover',
+        paddingBottom: 20,
       },
   
       textbody:{
@@ -18,14 +19,14 @@ export default StyleSheet.create({
    
     imageContainer:{
      position: 'absolute',
-     top: -195,
-     right: '75%',
-     paddingTop: 10,
-     flex: .2,
+     top: 30,
+     left: 30,
+     paddingTop: Platform.OS === 'ios' ? 40 : 0,
   },
   
     logoimage:{
         width:70,
+        height: 70,
     },
   
     botao:{
@@ -86,7 +87,7 @@ export default StyleSheet.create({
         backgroundColor: "white",
         borderTopRightRadius: 40,
         borderTopLeftRadius: 40,
-        flex: .5,
+        flex: Platform.OS === 'ios' ? .55 : .6,
       },
   
     viewimage:{
@@ -238,7 +239,7 @@ export default StyleSheet.create({
   
   paizao:{
      flex: 1,
-     paddingVertical: Platform.OS === 'ios' ? 40 : 0,
+     paddingVertical: Platform.OS === 'ios' ? 40 : 20,
   },
   
   

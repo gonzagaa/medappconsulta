@@ -45,10 +45,11 @@ function MenuTab (){
               backgroundColor: "#fff",
               borderTopStartRadius: 25,
               borderTopEndRadius: 25,
-              borderWidth: 1,
+              borderWidth: .5,
               borderColor: "#4B92E5",
-              borderTopWidth: 1,
-              borderTopColor: "#4B92E5"
+              borderTopWidth: 3,
+              borderTopColor: "#4B92E5",
+              paddingBottom: 20,
             }
           }}>
 

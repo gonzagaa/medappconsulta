@@ -32,7 +32,7 @@ const ContaCriada = ({ navigation }) => {
       textAlign: 'center',
       alignItems: 'center',
       justifyContent: 'center',
-      paddingHorizontal: 30, 
+      paddingHorizontal: 25, 
     },
 
     buttonEntrar: {

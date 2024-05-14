@@ -144,7 +144,8 @@ const Agendamentos = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
+    padding: 30,
+    paddingHorizontal: 25,
     backgroundColor: 'white',
   },
   title: {

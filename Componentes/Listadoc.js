@@ -55,7 +55,8 @@ const ListarMedicos = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
+    paddingVertical: 30,
+    paddingHorizontal: 25,
   },
 
   titulo: {

@@ -263,7 +263,7 @@ const Details = ({navigation}) => {
     },
     container:{
         paddingVertical: 30,
-        padding: 30,
+        paddingHorizontal: 25,
         backgroundColor: 'white',
         height: "100%",
     },

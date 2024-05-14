@@ -1,8 +1,11 @@
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { useState } from 'react';
-import { Button, StyleSheet, Text, TouchableOpacity, View, backgroundColor} from 'react-native';
+import { Button, StyleSheet, Text, TouchableOpacity, View, backgroundColor, Image} from 'react-native';
 import NetInfo from '@react-native-community/netinfo';
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import { RFValue } from "react-native-responsive-fontsize";
+
+import logobranca from '../Image/logobranca.png';
 
 const Testcam = ({ navigation }) => {
     const [facing, setFacing] = useState('front');
@@ -18,9 +21,13 @@ const Testcam = ({ navigation }) => {
     if (!permission.granted) {
       // Camera permissions are not granted yet.
       return (
-        <View style={styles.container}>
-          <Text style={{ textAlign: 'center' }}>We need your permission to show the camera</Text>
-          <Button onPress={requestPermission} title="grant permission" />
+        <View style={styles.containerPermissao}>
+          <Image source={logobranca} style={styles.logobranca} resizeMode='contain'></Image>
+          <Text style={styles.textPermissao}>Para continuar, permita o acesso à sua camera :)</Text>
+
+          <TouchableOpacity style={styles.buttonPermissao} onPress={requestPermission} >
+            <Text style={styles.textbuttonPermissao} >PERMITIR ACESSO</Text>
+          </TouchableOpacity>
         </View>
       );
     }
@@ -64,6 +71,52 @@ const Testcam = ({ navigation }) => {
       flex: 1,
       justifyContent: 'center',
       paddingBottom: 70,
+      backgroundColor: "#fff"
+    },
+
+    containerPermissao: {
+      backgroundColor: "#034677",
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      paddingHorizontal: 30,
+    },
+
+    textPermissao: {
+      textAlign: "center",
+      fontSize: RFValue(12),
+      color: "#fff",
+      fontWeight: "600",
+      marginBottom: 4,
+    },
+
+    buttonPermissao: {
+      backgroundColor: "#4B92E5",
+      padding: 10,
+      marginTop: 15,
+      borderRadius: 50,
+      shadowColor: "#000",
+      shadowOffset: {
+          width: 0,
+          height: 3,
+      },
+      shadowOpacity: 0.27,
+      shadowRadius: 4.65,
+
+      elevation: 6,
+      width: '100%',
+  },
+  textbuttonPermissao: {
+      textAlign: "center",
+      fontSize: 18,
+      color: "white",
+      fontFamily: 'Montserrat', 
+      fontWeight: '700',
+  },
+
+    logobranca:{
+      width: 250,
+      marginTop: -50,
     },
 
     camera: {

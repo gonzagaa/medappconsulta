@@ -224,14 +224,13 @@ const styles = StyleSheet.create({
 
 container:{
     padding: 10,
-    paddingHorizontal: 30,
+    paddingHorizontal: 25,
     elevation: 6,
     height: "100%",
     backgroundColor: "white",
   },
 
   label: {
-      
     fontFamily: "Monteserrat",
     fontSize: RFValue(20),
     marginLeft: 4,
@@ -262,9 +261,7 @@ atendimento:{
       padding: 16,    
       paddingBottom: 125,
       borderRadius: 25,
-    backgroundColor: 'rgba(0,0,0,0.07)'
-
-    
+      backgroundColor: 'rgba(0,0,0,0.07)'
 },
 atendimentotext:{
     fontSize: 35,
@@ -342,7 +339,8 @@ centureview:{
       width:"100%", 
       backgroundColor: "#4B92E5",
       padding: 20,
-      borderRadius: 40,
+      borderTopRightRadius: 40,
+      borderTopLeftRadius: 40,
       flex: .46,
       paddingBottom: Platform.OS === 'ios' ? 40 : 0,     
       
@@ -375,7 +373,7 @@ centureview:{
 
 
     textomodal:{
-    fontSize: 30,
+    fontSize: RFValue(28),
     color: "white",
     textAlign: "left",
     fontFamily: "Monteserrat",
@@ -386,16 +384,13 @@ centureview:{
   },
 
     viewbemvindo:{
-    paddingLeft: 30,
-    paddingRight: 30,
+    paddingHorizontal: 30,
   },
 
   botaomodal:{
     backgroundColor: "white",
     padding: 10,
     marginTop: 16,
-    marginLeft: 30,
-    marginRight: 30,
     borderRadius: 50,
     shadowColor: "#000",
     shadowOffset: {
@@ -406,11 +401,12 @@ centureview:{
     shadowRadius: 4.65,
 
     elevation: 6,
+    marginHorizontal: 10,
   },
 
   textobotaomodal:{
     textAlign: "center",
-    fontSize: 18,
+    fontSize: RFValue(16),
     color: "#4B92E5",
     fontFamily: 'Montserrat', 
     fontWeight: '700',
@@ -427,7 +423,7 @@ testochamada:{
 },
 
 textomodal1:{
-    fontSize: 30,
+    fontSize: RFValue(28),
     color: "white",
     textAlign: "left",
     fontFamily: "Monteserrat",
@@ -440,11 +436,12 @@ textomodal1:{
   fotosheader:{
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingTop: 25,
     marginBottom: 25,
 
     borderBottomWidth: 1,
     borderBottomColor: "#034677",
+    paddingTop: Platform.OS === 'ios' ? 25 : 0,     
+
   },
 
   ftcarinha:{

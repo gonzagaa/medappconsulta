@@ -63,7 +63,7 @@ export default function HomeScreen({ navigation }) {
   
   
       <ImageBackground source={bgimage} style={styles.bgimage} resizeMode='cover'>
-        <StatusBar backgroundColor="red" barStyle="default" />
+        <StatusBar backgroundColor="black" barStyle="default" />
   
           <SafeAreaView style={styles.paizao}>
   
