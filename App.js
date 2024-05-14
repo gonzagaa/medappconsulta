@@ -4,6 +4,7 @@ import { StyleSheet } from "react-native";
 import { NavigationApp } from "./routes/app.route";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import NPSScreen from "./Pages/Consulta/NPS";
 
 export default function App() {
   const stripePromise = loadStripe("pk_test_6pRNASCoBOKtIshFeQd4XMUh");
